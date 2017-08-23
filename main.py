@@ -2,16 +2,14 @@ from func import *
 
 alphabet='qwertyuiopasdfghjklzxcvbnmйцукенгшщзхъёфывапролджэячсмитьбю1234567890 '
 
+mess=lambda text, key: True if len(set(text) & set(key)) else False
+'''
 def mess(text, key):
-	for i in range(len(text)):
-		if text[i] not in alphabet:
-			text[i]=' '
-	text=text.split()
-
 	for i in key:
 		if i in text:
 			return True
 	return False
+'''
 
 while True:
 	with db:
@@ -20,14 +18,19 @@ while True:
 			for j in db.execute("SELECT * FROM users WHERE id=(?)", (i[0],)):
 				t=True
 
+				for k in range(len(i[1])):
+					if i[1][k] not in alphabet:
+						i[1][k]=' '
+				text=i[1].lower().split()
+
 				if j[6]:
 					send(i[0], 'Расписание')
 
 				elif j[1]=='0':
 					x=''
-					if mess(i[1], :
-						x=''
-					elif '14' in i[1]:
+					if mess(text, ('26', 'юриспруденция', 'jurisprudence')):
+						x='LAWS'
+					elif mess(text, ('14', )):
 						x='AMCP'
 
 					if x:
