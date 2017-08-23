@@ -1,5 +1,18 @@
 from func import *
 
+alphabet='qwertyuiopasdfghjklzxcvbnmйцукенгшщзхъёфывапролджэячсмитьбю1234567890 '
+
+def mess(text, key):
+	for i in range(len(text)):
+		if text[i] not in alphabet:
+			text[i]=' '
+	text=text.split()
+
+	for i in key:
+		if i in text:
+			return True
+	return False
+
 while True:
 	with db:
 		for i in  read():
@@ -9,12 +22,20 @@ while True:
 
 				if j[6]:
 					send(i[0], 'Расписание')
-				elif j[1]=='0':
-					if i[1]=='14':
-						x='AMCP'
-					db.execute("UPDATE users SET name=1, cont=2, time=(?) WHERE id=1", (time,))
 
-					send(i[0], 'Какая программа обучения?')
+				elif j[1]=='0':
+					x=''
+					if mess(i[1], :
+						x=''
+					elif '14' in i[1]:
+						x='AMCP'
+
+					if x:
+						db.execute("UPDATE users SET faculty=(?) WHERE id=(?)", (x, i[0]))
+						send(i[0], 'Какая программа обучения?')
+					else:
+						send(i[0], 'Неверное значение 😭')
+
 				elif j[2]==0:
 					send(i[0], 'Какое направление?')
 				elif j[3]==0:
