@@ -1,5 +1,7 @@
 from func import *
 
 while True:
-	for i in  read():
-		send(i[0], 'Расписание')
+	with db:
+		for i in  read():
+			for j in db.execute("SELECT * FROM users WHERE vkid=(?)", (i[0],)):
+			send(i[0], 'Расписание')

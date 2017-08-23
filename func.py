@@ -1,5 +1,9 @@
-import time, requests, vk_api, json
+import time, requests, vk_api, json, sqlite3
 
+#SQLite
+db=sqlite3.connect('main.db')
+
+#VK
 with open('set.txt', 'r') as file:
 	s=json.loads(file.read())
 
